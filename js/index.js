@@ -72,6 +72,8 @@ function setEraserProperties() {
 		activeColor = 'rgb(255,255,255)';
 	} else {
 		context.globalCompositeOperation = "source-over";
+		const swatch = document.getElementsByClassName('active')[0];
+		activeColor = swatch.style.backgroundColor;
 	}
 }
 
@@ -186,10 +188,6 @@ var engage = (e) => {
 
 var disengage = () => {
   dragging = false;
-
-  if (activeTool === ACTIVE_BUTTON.eraser) {
-  	context.globalCompositeOperation = "source-over";
-  }
   storeSnapshot();
 }
 
