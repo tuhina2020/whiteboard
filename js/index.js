@@ -144,7 +144,7 @@ function storeSnapshot() {
   if (cStep < cPushArray.length) {
   	cPushArray.length = cStep;
   }
-  cPushArray.push(canvas.toDataURL());
+	cPushArray.push(canvas.toDataURL());
 }
 
 //Puts a circle down wherever the user clicks
@@ -220,7 +220,11 @@ var clearButton = document.getElementById('clearCanvas');
 clearButton.addEventListener('click', clearCanvas);
 
 function clearCanvas(e) {
-  storeSnapshot();
+	cPushArray = [];
+	cStep = -1;
+	POINTS.eraser = [];
+	POINTS.highlighter = false;
+	POINTS.pencil = [];
   context.clearRect(0, 0, canvas.width, canvas.height);
 }
 
